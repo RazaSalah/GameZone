@@ -5,7 +5,7 @@ import {styles} from '../styles/Global';
 export default function About() {
   return (
     <View style={styles.container}>
-      <Text>About</Text>
+      <Text style={styles.title}>About</Text>
     </View>
   );
 }
