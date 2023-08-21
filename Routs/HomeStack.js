@@ -18,7 +18,6 @@ const screens = {
 export default HomeStackNavigation = createStackNavigator(screens);
 
 // the app container will return render that we can use in app.js to navigate
-// export default NavigationContainer(HomeStackNavigation);
 
 // by default the home screen will be the first screen but then it
 //  will be replaced with the other screen when we navigate to the other screen
