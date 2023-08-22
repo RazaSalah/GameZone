@@ -7,11 +7,15 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Acme-Regular',
-    fontSize: 40,
-    color: 'purple',
+    fontSize: 16,
+    color: '#e7305b',
+    marginTop: 16,
   },
   paragraph: {
     marginVertical: 8,
     lineHeight: 28,
+  },
+  header: {
+    backgroundColor: 'purple',
   },
 });
