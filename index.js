@@ -1,17 +1,17 @@
 import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import Home from './Screens/Home';
-import ReviewDetails from './Screens/ReviewDetails';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import {styles} from './styles/Global';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import Home from './Screens/Home';
+import ReviewDetails from './Screens/ReviewDetails';
 import About from './Screens/About';
+import Header from './Shared/Header';
 
 const Drawer = createDrawerNavigator();
 // here we need to pass the object the we have created using stack navigator for the screens that we will navigate between
-const HomeStack = createNativeStackNavigator();
+// const HomeStack = createNativeStackNavigator();
 const GameZone = () => {
   return (
     // <NavigationContainer>
@@ -53,18 +53,18 @@ const GameZone = () => {
           drawerActiveTintColor: '#e91e63',
           drawerStyle: {
             backgroundColor: 'white',
-            width: 240,
+            // width: 240,
           },
         }}>
         <Drawer.Screen
           name="Home"
           component={Home}
           options={{
-            title: 'GameZone',
+            headerTitle: () => <Header title="Game Zone" />,
             // the text color
-            headerTintColor: 'white',
+            headerTintColor: 'black',
             headerStyle: {
-              backgroundColor: '#e7305b',
+              backgroundColor: 'white',
             },
           }}
         />
@@ -74,9 +74,9 @@ const GameZone = () => {
           options={{
             title: 'Review Details',
             // the text color
-            headerTintColor: 'white',
+            headerTintColor: 'black',
             headerStyle: {
-              backgroundColor: '#e7305b',
+              backgroundColor: 'white',
             },
           }}
         />
@@ -84,11 +84,11 @@ const GameZone = () => {
           name="About"
           component={About}
           options={{
-            title: 'About',
+            headerTitle: () => <Header title="About" />,
             // the text color
-            headerTintColor: 'white',
+            headerTintColor: 'black',
             headerStyle: {
-              backgroundColor: '#e7305b',
+              backgroundColor: 'white',
             },
           }}
         />
