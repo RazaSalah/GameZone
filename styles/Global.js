@@ -74,6 +74,19 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 0,
   },
+  Textinput: {
+    borderWidth: 2,
+    borderColor: '#e7305b',
+    padding: 10,
+    margin: 10,
+    fontSize: 18,
+    borderRadius: 15,
+  },
+  button: {
+    width: 10,
+    padding: 10,
+    borderRadius: 15,
+  },
 });
 
 export const images = {

@@ -1,10 +1,20 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity, Modal} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Modal,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {styles} from '../styles/Global';
 import Cards from '../Shared/Cards';
+import ReviewForm from './ReviewForm';
 
 export default function Home({navigation}) {
+  const [visiblty, setVisibilty] = useState(false);
   const pressHandler = () => {
     // the name of the screen that we have given in stack navigation
     navigation.navigate('ReviewDetails');
@@ -26,7 +36,14 @@ export default function Home({navigation}) {
     {name: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3'},
   ]);
 
-  const [visiblty, setVisibilty] = useState(false);
+  const AddReview = review => {
+    review.key = Math.random().toString();
+    setReview(currentReview => {
+      return [review, ...currentReview];
+    });
+
+    setVisibilty(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -41,17 +58,20 @@ export default function Home({navigation}) {
         visible={visiblty}
         animationType="slide"
         style={styles.modalContent}>
-        <View style={styles.modalContainer}>
-          <Icon
-            name="close"
-            size={24}
-            color="#900"
-            style={{...styles.toggle, ...styles.close}}
-            onPress={() => setVisibilty(false)}
-          />
-          <Text>Modal </Text>
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContainer}>
+            <Icon
+              name="close"
+              size={24}
+              color="#900"
+              style={{...styles.toggle, ...styles.close}}
+              onPress={() => setVisibilty(false)}
+            />
+            <ReviewForm AddReview={AddReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
+
       <FlatList
         data={review}
         renderItem={({item}) => (
