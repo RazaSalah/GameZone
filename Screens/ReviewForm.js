@@ -64,6 +64,7 @@ export default function ReviewForm({AddReview}) {
 
             <TextInput
               multiline
+              minHeight={60}
               style={styles.Textinput}
               placeholder="Review Body"
               // by using the props provided by formik we will update the value of name with the user input
