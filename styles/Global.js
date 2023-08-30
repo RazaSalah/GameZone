@@ -83,9 +83,24 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
   },
   button: {
-    width: 10,
-    padding: 10,
-    borderRadius: 15,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    backgroundColor: '#e7305b',
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    // transform: 'uppercase',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  errorText: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 8,
+    marginTop: 6,
+    color: 'black',
   },
 });
 
